@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Issue #1",
+    "content": "Cannot login to the dashboard",
+    "severity": "high",
+    "owner": "Alice"
+  },
+  {
+    "name": "Issue #2",
+    "content": "UI layout broken on mobile",
+    "severity": "medium",
+    "owner": "Bob"
+  },
+  {
+    "name": "Issue #3",
+    "content": "Missing translations in French",
+    "severity": "low",
+    "owner": "Charlie"
+  },
+  {
+    "name": "Issue #4",
+    "content": "Payment API returns 500 error",
+    "severity": "high",
+    "owner": "Dana"
+  },
+  {
+    "name": "Issue #5",
+    "content": "Profile picture upload fails intermittently",
+    "severity": "medium",
+    "owner": "Eve"
+  }
+]
