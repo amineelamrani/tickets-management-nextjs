@@ -28,5 +28,17 @@
     "content": "Profile picture upload fails intermittently",
     "severity": "medium",
     "owner": "Eve"
+  },
+  {
+    "name": "Payment issue",
+    "content": "Card not accepted",
+    "severity": "medium",
+    "owner": "John"
+  },
+  {
+    "name": "Ticket Test",
+    "content": "Test from the front end",
+    "severity": "high",
+    "owner": "Amine"
   }
 ]

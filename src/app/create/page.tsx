@@ -16,8 +16,21 @@ export default function Page() {
     owner: "",
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const res = await fetch("/api/tickets", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        content: formData.content,
+        severity: formData.severity,
+        owner: formData.owner,
+      }),
+    });
+    const data = await res.json();
     console.log("Form submitted");
     console.log(formData);
   };
