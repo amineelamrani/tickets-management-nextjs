@@ -1,5 +1,5 @@
-"use client";
 import React, { JSX } from "react";
+import Link from "next/link";
 
 type RectangleProps = {
   text: string;
@@ -15,12 +15,12 @@ const RectangleSelection = ({
   };
 
   return (
-    <div
-      onClick={handleClick}
+    <Link
+      href={`/${direction}`}
       className="hover:cursor-pointer w-1/3 border-white border-2 pb-24 hover:bg-foreground hover:text-background "
     >
       <h1 className="text-2xl font-bold p-2">{text}</h1>
-    </div>
+    </Link>
   );
 };
 

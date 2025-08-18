@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="flex flex-col items-center py-10">
-          <h1 className="uppercase text-4xl my-5">TICKET MANAGEment app</h1>
+          <Link href="/">
+            <h1 className="uppercase text-4xl my-5 hover:animate-bounce">
+              TICKET MANAGEment app
+            </h1>
+          </Link>
           {children}
         </div>
       </body>
