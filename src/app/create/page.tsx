@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface FormDataType {
   name: string;
@@ -15,6 +16,7 @@ export default function Page() {
     severity: "low",
     owner: "",
   });
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,7 +34,8 @@ export default function Page() {
     });
     const data = await res.json();
     console.log("Form submitted");
-    console.log(formData);
+    console.log(data);
+    router.push("/");
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,6 +56,7 @@ export default function Page() {
           value={formData.name}
           onChange={handleChange}
           className="border p-2 w-105 rounded-xl"
+          required
         />
         <input
           type="text"
@@ -61,6 +65,7 @@ export default function Page() {
           value={formData.content}
           onChange={handleChange}
           className="border p-2 w-105 rounded-xl"
+          required
         />
         <input
           type="text"
@@ -77,6 +82,7 @@ export default function Page() {
           value={formData.owner}
           onChange={handleChange}
           className="border p-2 w-105 rounded-xl"
+          required
         />
         <button
           type="submit"
