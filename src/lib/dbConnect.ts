@@ -11,7 +11,7 @@ if (!cached) {
 }
 
 async function dbConnect() {
-  const MONGODB_URI = process.env.DBURL;
+  const MONGODB_URI: string = process.env.DBURL!;
 
   if (!MONGODB_URI) {
     throw new Error(
