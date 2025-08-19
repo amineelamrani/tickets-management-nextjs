@@ -11,7 +11,7 @@ interface TicketTypeInterface {
 const TicketsListItems = ({ ticket }: TicketTypeInterface): JSX.Element => {
   return (
     <Link
-      href={`/track/${ticket.name}`}
+      href={`/track/${ticket._id}`}
       className="w-full border-white border-2 rounded-xl p-5 hover:cursor-pointer hover:bg-foreground hover:text-background"
     >
       <h1>{ticket.name}</h1>

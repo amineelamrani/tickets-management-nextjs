@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import dbConnect from "@/lib/dbConnect";
+import Ticket from "@/models/ticketModel";
 
 const filepath = path.join(process.cwd(), "src/data/data.json");
 
@@ -12,16 +14,19 @@ interface ticketData {
 }
 
 export async function GET() {
-  const fileContents = fs.readFileSync(filepath, "utf-8");
-  const data = JSON.parse(fileContents);
+  await dbConnect();
+  const ticket = await Ticket.find({});
+  // const fileContents = fs.readFileSync(filepath, "utf-8");
+  // const data = JSON.parse(fileContents);
 
   return NextResponse.json({
     message: "first GET request from the server",
-    data: data,
+    data: ticket,
   });
 }
 
 export async function POST(request: Request) {
+  await dbConnect();
   try {
     const body: ticketData = await request.json();
     if (
@@ -33,6 +38,8 @@ export async function POST(request: Request) {
         message: "Cannot create the ticket all the fields are mandatory",
       });
     }
+
+    const ticket = await Ticket.create(body);
     const fileContents = fs.readFileSync(filepath, "utf-8");
     const data = JSON.parse(fileContents);
     data.push(body);
